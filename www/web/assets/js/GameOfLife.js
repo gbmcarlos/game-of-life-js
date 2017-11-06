@@ -10,18 +10,49 @@
         gridManager: gridManager,
 
         config: {
-            intervalDuration: 300
+            numberCellsX: 38,
+            numberCellsY: 38,
+            cellWidth: 10,
+            cellHeight: 10,
+            intervalDuration: 10
+        },
+
+        init: function() {
+
+            this.gridManager.init(
+                this.config.numberCellsX * this.config.cellWidth,
+                this.config.numberCellsY * this.config.cellHeight
+            );
+
         },
 
         start: function(initialPopulation, iterationCallback) {
 
+            this.reset();
             this.population = initialPopulation; // in this property we'll save the population each time
             this.iterationCallback = iterationCallback; // callback to be called after each generation, with the number of generation and the population count
-            this.generations = 0; // reset the number of generations
-            this.gridManager.resetGrid(); // reset the grid
+            this.resume();
 
+        },
+
+        stop: function() {
+
+            clearInterval(this.interval);
+
+        },
+
+        reset: function() {
+            this.stop();
+            this.generations = 0;
+            this.gridManager.resetGrid();
+        },
+
+        resume: function() {
+            this.setInterval();
+        },
+
+        setInterval: function() {
             this.interval = setInterval(this.nextGeneration.bind(this), this.config.intervalDuration); // start the iterations
-
         },
 
         nextGeneration: function() {
@@ -37,13 +68,9 @@
                 this.stop();
             }
 
-            this.iterationCallback(this.generations, nextPopulation.count);
-
-        },
-
-        stop: function() {
-
-            clearInterval(this.interval);
+            if (typeof this.iterationCallback == 'function') {
+                this.iterationCallback(this.generations, nextPopulation.count);
+            }
 
         },
 
@@ -133,15 +160,15 @@
 
         },
 
-        getRandomPattern: function(x, y, ratio) {
+        getRandomPattern: function(ratio) {
 
             var pattern = [];
 
-            for (var i = 0; i < x; i++) { // for each line
+            for (var i = 0; i < this.config.numberCellsX; i++) { // for each line
 
                 pattern[i] = [];
 
-                for (var j = 0; j < y; j++) { // for each cell
+                for (var j = 0; j < this.config.numberCellsY; j++) { // for each cell
 
                     pattern[i][j] = this.getRandomCell(ratio);
 
@@ -161,5 +188,7 @@
 
     window.GameOfLife = GameOfLife;
 
+    window.GameOfLife.init();
 
-})(jQuery, window, window.GridManager);
+
+})(jQuery, window, window.GridManagerCanvas);

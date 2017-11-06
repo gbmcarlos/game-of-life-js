@@ -3,16 +3,14 @@
  */
 (function(jQuery, window){
 
-    var GridManager = {
+    var GridManagerSVG = {
 
         $: jQuery,
 
         config: {
             width: 600,
             height: 600,
-            selector: '#grid',
-            numberCellsX: 38,
-            numberCellsY: 38
+            containerSelector: '#grid-container'
         },
 
         init: function() {
@@ -22,10 +20,13 @@
         },
 
         resetGrid: function() {
-            this.$(this.config.selector).empty();
+            this.canvas.empty();
         },
 
         drawGrid: function(grid) {
+
+            var cellWidth = this.config.width / grid.length;
+            var cellHeight = this.config.width / grid[0].length;
 
             var count = 0;
 
@@ -38,10 +39,10 @@
                     var cellInfo = grid[i][j];
 
                     var cellProperties = {
-                        x: i * this.config.cell.width,
-                        y: j * this.config.cell.height,
-                        width: this.config.cell.width,
-                        height: this.config.cell.height,
+                        x: i * cellWidth,
+                        y: j * cellHeight,
+                        width: cellWidth,
+                        height: cellHeight,
                         fill: '#ffffff'
                     };
 
@@ -64,7 +65,7 @@
 
             var node = this.getNode(nodeType, properties);
 
-            this.canvas.appendChild(node);
+            this.canvas.append(node);
 
             return this;
 
@@ -87,23 +88,23 @@
 
         setupCanvas: function(config) {
 
-            var canvas = this.$(config.selector);
+            var canvas = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            canvas = this.$(canvas);
             canvas.width(config.width);
             canvas.height(config.height);
+            canvas.css('border', '1px solid');
 
-            this.config.cell = {
-                width: config.width / config.numberCellsX,
-                height: config.height / config.numberCellsY
-            };
+            this.$(config.containerSelector).empty();
+            this.$(config.containerSelector).append(canvas);
 
-            return canvas.get(0);
+            return canvas;
 
         }
 
     };
 
-    window.GridManager = GridManager;
+    window.GridManagerSVG = GridManagerSVG;
 
-    window.GridManager.init();
+    window.GridManagerSVG.init();
 
 })(jQuery, window);
