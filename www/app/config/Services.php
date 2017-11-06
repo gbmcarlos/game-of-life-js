@@ -4,6 +4,7 @@ namespace App\config;
 
 use App\controllers\FrontController;
 use Silex\Application;
+use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\RoutingServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\TwigServiceProvider;
@@ -38,6 +39,12 @@ class Services {
         ));
         // Twig bridge, gives access to functions like url and path in the templates
         $app->register(new RoutingServiceProvider());
+
+        //Symfony's assets manager
+        $app->register(new AssetServiceProvider(array(
+            'assets.version' => 'v1',
+            'assets.base_path' => '/assets'
+        )));
 
     }
 
