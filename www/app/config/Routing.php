@@ -15,6 +15,8 @@ class Routing {
     public static function registerRoutes(Application $app){
 
         // Register routes here
+        $app->get('/', "FrontController:helloWorld")
+            ->bind('index');
 
     }
 
