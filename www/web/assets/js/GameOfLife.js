@@ -28,13 +28,31 @@
 
         start: function(initialPopulation, iterationCallback) {
 
+            this.reset();
             this.population = initialPopulation; // in this property we'll save the population each time
             this.iterationCallback = iterationCallback; // callback to be called after each generation, with the number of generation and the population count
-            this.generations = 0; // reset the number of generations
-            this.gridManager.resetGrid(); // reset the grid
+            this.resume();
 
+        },
+
+        stop: function() {
+
+            clearInterval(this.interval);
+
+        },
+
+        reset: function() {
+            this.stop();
+            this.generations = 0;
+            this.gridManager.resetGrid();
+        },
+
+        resume: function() {
+            this.setInterval();
+        },
+
+        setInterval: function() {
             this.interval = setInterval(this.nextGeneration.bind(this), this.config.intervalDuration); // start the iterations
-
         },
 
         nextGeneration: function() {
@@ -50,13 +68,9 @@
                 this.stop();
             }
 
-            this.iterationCallback(this.generations, nextPopulation.count);
-
-        },
-
-        stop: function() {
-
-            clearInterval(this.interval);
+            if (typeof this.iterationCallback == 'function') {
+                this.iterationCallback(this.generations, nextPopulation.count);
+            }
 
         },
 
