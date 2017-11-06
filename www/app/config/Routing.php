@@ -16,7 +16,13 @@ class Routing {
 
         // Register routes here
         $app->get('/', "FrontController:helloWorld")
-            ->bind('index');
+            ->bind('front.index');
+        $app->get('/random-pattern', "FrontController:randomPattern")
+            ->bind('front.random-pattern');
+        $app->get('/gosper-glider-gun', "FrontController:gosperGliderGun")
+            ->bind('front.gosper-glider-gun');
+        $app->get('/create-pattern', "FrontController:createPattern")
+            ->bind('front.create-pattern');
 
     }
 
