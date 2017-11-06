@@ -3,16 +3,46 @@
  */
 (function(jQuery, window){
 
-    var QuoteManager = {
+    var GridManager = {
+
+        $: jQuery,
+
+        config: {
+            grid: {
+                width: '600',
+                height: '600',
+                containerSelector: '#grid-container',
+                id: 'grid'
+            }
+        },
 
         init: function() {
-            console.log('TEST');
+
+            this.canvasElement = this.createCanvas(this.config.grid);
+
+
+
+        },
+
+        createCanvas: function(gridConfig) {
+
+            var canvas = document.createElement('canvas');
+            canvas.id = gridConfig.id;
+            canvas.width = gridConfig.width;
+            canvas.height = gridConfig.height;
+            canvas.style.border = '1px solid';
+
+            var container = this.$(gridConfig.containerSelector);
+            container.empty();
+            container.append(canvas);
+
+
         }
 
     };
 
-    window.QuoteManager = QuoteManager;
+    window.GridManager = GridManager;
 
-    window.QuoteManager.init();
+    window.GridManager.init();
 
 })(jQuery, window);
