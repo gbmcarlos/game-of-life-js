@@ -6,7 +6,7 @@
  * Time: 11:38 AM
  */
 
-namespace app\controllers;
+namespace App\controllers;
 
 
 use Symfony\Component\HttpFoundation\Request;
@@ -21,6 +21,18 @@ class FrontController {
 
     public function helloWorld(Request $request) {
         return $this->twig->render('index.twig');
+    }
+
+    public function randomPattern(Request $request) {
+        return $this->twig->render('random-pattern.twig');
+    }
+
+    public function gosperGliderGun(Request $request) {
+        return $this->twig->render('gosper-glider-gun.twig');
+    }
+
+    public function createPattern(Request $request) {
+        return $this->twig->render('create-pattern.twig');
     }
 
 }
