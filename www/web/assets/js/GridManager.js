@@ -13,7 +13,8 @@
                 height: 600,
                 selector: '#grid',
                 numberCellsX: 38,
-                numberCellsY: 38
+                numberCellsY: 38,
+                randomRatio: 0.2
             }
         },
 
@@ -21,6 +22,10 @@
 
             this.canvas = this.setupCanvas(this.config);
 
+        },
+
+        resetGrid: function() {
+            this.$(this.config.grid.selector).empty();
         },
 
         getRandomGrid: function() {
@@ -43,11 +48,15 @@
 
         },
 
-        getRandomCell: function(){
-            return !!Math.floor(Math.random() * 2);
+        getRandomCell: function() {
+            return Math.random() > this.config.grid.randomRatio;
         },
 
         drawGrid: function(grid) {
+
+            var count = 0;
+
+            this.resetGrid();
 
             for (var i = 0; i < grid.length; i++) { // for each line
 
@@ -55,25 +64,26 @@
 
                     var cellInfo = grid[i][j];
 
+                    var cellProperties = {
+                        x: i * this.config.cell.width,
+                        y: j * this.config.cell.height,
+                        width: this.config.cell.width,
+                        height: this.config.cell.height,
+                        fill: '#ffffff'
+                    };
+
                     if (cellInfo) {
-
-                        var positionX = i * this.config.cell.width;
-                        var positionY = j * this.config.cell.height;
-
-                        this.drawNode('rect', {
-                                x: positionX,
-                                y: positionY,
-                                width: this.config.cell.width,
-                                height: this.config.cell.height,
-                                fill: '#000000'
-                            }
-                        );
-
+                        cellProperties.fill = '#000000';
+                        count++;
                     }
+
+                    this.drawNode('rect', cellProperties);
 
                 }
 
             }
+
+            return count;
 
         },
 
