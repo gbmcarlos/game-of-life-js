@@ -8,14 +8,11 @@
         $: jQuery,
 
         config: {
-            grid: {
-                width: 600,
-                height: 600,
-                selector: '#grid',
-                numberCellsX: 38,
-                numberCellsY: 38,
-                randomRatio: 0.02
-            }
+            width: 600,
+            height: 600,
+            selector: '#grid',
+            numberCellsX: 38,
+            numberCellsY: 38
         },
 
         init: function() {
@@ -25,31 +22,7 @@
         },
 
         resetGrid: function() {
-            this.$(this.config.grid.selector).empty();
-        },
-
-        getRandomGrid: function() {
-
-            var grid = [];
-
-            for (var i = 0; i < this.config.grid.numberCellsX; i++) { // for each line
-
-                grid[i] = [];
-
-                for (var j = 0; j < this.config.grid.numberCellsY; j++) { // for each cell
-
-                    grid[i][j] = this.getRandomCell();
-
-                }
-
-            }
-
-            return grid;
-
-        },
-
-        getRandomCell: function() {
-            return Math.random() < this.config.grid.randomRatio;
+            this.$(this.config.selector).empty();
         },
 
         drawGrid: function(grid) {
@@ -114,13 +87,13 @@
 
         setupCanvas: function(config) {
 
-            var canvas = this.$(config.grid.selector);
-            canvas.width(config.grid.width);
-            canvas.height(config.grid.height);
+            var canvas = this.$(config.selector);
+            canvas.width(config.width);
+            canvas.height(config.height);
 
             this.config.cell = {
-                width: config.grid.width / config.grid.numberCellsX,
-                height: config.grid.height / config.grid.numberCellsY
+                width: config.width / config.numberCellsX,
+                height: config.height / config.numberCellsY
             };
 
             return canvas.get(0);
