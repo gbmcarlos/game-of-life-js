@@ -1,8 +1,10 @@
 <?php
 
 namespace App\config;
+use App\controllers\FrontController;
 use Silex\Application;
 use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\TwigServiceProvider;
 
 /**
  * Created by PhpStorm.
@@ -18,6 +20,20 @@ class Services {
         $app->register(new ServiceControllerServiceProvider());
 
         // Register the services and controllers here
+
+        // Controllers
+        // Front controller
+        $app['FrontController'] = function() use ($app) {
+            return new FrontController(
+                $app['twig']
+            );
+        };
+
+        // Services
+        // Twig
+        $app->register(new TwigServiceProvider(), array(
+            'twig.path' => __DIR__.'/../templates',
+        ));
 
     }
 
