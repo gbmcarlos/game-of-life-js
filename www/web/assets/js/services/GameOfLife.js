@@ -26,11 +26,12 @@
 
         },
 
-        start: function(initialPopulation, iterationCallback) {
+        start: function(initialPopulation, iterationCallback, finishCallback) {
 
             this.reset();
             this.population = initialPopulation; // in this property we'll save the population each time
             this.iterationCallback = iterationCallback; // callback to be called after each generation, with the number of generation and the population count
+            this.finishCallback = finishCallback; // callback to be called when the population dies
             this.resume();
 
         },
@@ -51,6 +52,12 @@
             this.setInterval();
         },
 
+        forceStop: function() {
+            if (typeof this.finishCallback == 'function') {
+                this.finishCallback(this.generations);
+            }
+        },
+
         setInterval: function() {
             this.interval = setInterval(this.nextGeneration.bind(this), this.config.intervalDuration); // start the iterations
         },
@@ -65,7 +72,7 @@
             this.population = nextPopulation.population;
 
             if (nextPopulation.count < 0) {
-                this.stop();
+                this.forceStop();
             }
 
             if (typeof this.iterationCallback == 'function') {
