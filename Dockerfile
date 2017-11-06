@@ -1,12 +1,13 @@
 FROM php:7.0-apache
 
-# Install Apache PHP mod and its dependencies (including Apache and PHP!), and git, in case composer needs it
+# Install Apache PHP mod and its dependencies (including Apache and PHP!), and git, zip and unzip in case composer needs it
 RUN    apt-get update \
     && apt-get -yq install \
         curl \
         php5-curl \
         libapache2-mod-macro \
         git \
+        zip unzip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install composer
