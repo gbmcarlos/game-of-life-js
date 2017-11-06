@@ -1,8 +1,10 @@
 <?php
 
 namespace App\config;
+
 use App\controllers\FrontController;
 use Silex\Application;
+use Silex\Provider\RoutingServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 
@@ -34,6 +36,8 @@ class Services {
         $app->register(new TwigServiceProvider(), array(
             'twig.path' => __DIR__.'/../templates',
         ));
+        // Twig bridge, gives access to functions like url and path in the templates
+        $app->register(new RoutingServiceProvider());
 
     }
 
