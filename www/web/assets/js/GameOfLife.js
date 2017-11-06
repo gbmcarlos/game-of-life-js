@@ -97,7 +97,7 @@
 
                 for (var l = -1; l <= 1; l++) {
 
-                    if (k != 0 && l != 0) { // if it's the central cell that we are looking at
+                    if (k != 0 || l != 0) { // if it's the central cell that we are looking at
 
                         if (population[i + k] && population[i + k][j + l]) {
                             count++;
