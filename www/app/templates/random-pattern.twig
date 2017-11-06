@@ -4,4 +4,13 @@
 
 {% block content %}
     <h4>Game of life grid created form a random pattern</h4>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <svg id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="grid"></svg>
+        </div>
+    </div>
+{% endblock %}
+{% block footerAssets %}
+    <script type="application/javascript" src="{{ asset('assets/js/GridManager.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/grid.css') }}" />
 {% endblock %}
