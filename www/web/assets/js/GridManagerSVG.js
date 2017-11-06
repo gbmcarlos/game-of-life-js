@@ -94,8 +94,8 @@
             canvas.height(config.height);
             canvas.css('border', '1px solid');
 
-            this.$(this.config.containerSelector).empty();
-            this.$(this.config.containerSelector).append(canvas);
+            this.$(config.containerSelector).empty();
+            this.$(config.containerSelector).append(canvas);
 
             return canvas;
 
