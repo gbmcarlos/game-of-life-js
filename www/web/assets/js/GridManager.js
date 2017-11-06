@@ -14,7 +14,7 @@
                 selector: '#grid',
                 numberCellsX: 38,
                 numberCellsY: 38,
-                randomRatio: 0.2
+                randomRatio: 0.02
             }
         },
 
@@ -49,7 +49,7 @@
         },
 
         getRandomCell: function() {
-            return Math.random() > this.config.grid.randomRatio;
+            return Math.random() < this.config.grid.randomRatio;
         },
 
         drawGrid: function(grid) {
