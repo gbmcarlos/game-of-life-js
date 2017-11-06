@@ -17,7 +17,7 @@
         },
 
         init: function() {
-            
+
         },
 
         resetGrid: function() {
