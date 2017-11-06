@@ -10,7 +10,20 @@
         gridManager: gridManager,
 
         config: {
-            intervalDuration: 300
+            numberCellsX: 38,
+            numberCellsY: 38,
+            cellWidth: 10,
+            cellHeight: 10,
+            intervalDuration: 10
+        },
+
+        init: function() {
+
+            this.gridManager.init(
+                this.config.numberCellsX * this.config.cellWidth,
+                this.config.numberCellsY * this.config.cellHeight
+            );
+
         },
 
         start: function(initialPopulation, iterationCallback) {
@@ -133,15 +146,15 @@
 
         },
 
-        getRandomPattern: function(x, y, ratio) {
+        getRandomPattern: function(ratio) {
 
             var pattern = [];
 
-            for (var i = 0; i < x; i++) { // for each line
+            for (var i = 0; i < this.config.numberCellsX; i++) { // for each line
 
                 pattern[i] = [];
 
-                for (var j = 0; j < y; j++) { // for each cell
+                for (var j = 0; j < this.config.numberCellsY; j++) { // for each cell
 
                     pattern[i][j] = this.getRandomCell(ratio);
 
@@ -161,5 +174,7 @@
 
     window.GameOfLife = GameOfLife;
 
+    window.GameOfLife.init();
 
-})(jQuery, window, window.GridManagerSVG);
+
+})(jQuery, window, window.GridManagerCanvas);
