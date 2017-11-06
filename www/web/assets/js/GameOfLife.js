@@ -162,4 +162,4 @@
     window.GameOfLife = GameOfLife;
 
 
-})(jQuery, window, window.GridManager);
+})(jQuery, window, window.GridManagerSVG);

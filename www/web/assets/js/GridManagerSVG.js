@@ -3,7 +3,7 @@
  */
 (function(jQuery, window){
 
-    var GridManager = {
+    var GridManagerSVG = {
 
         $: jQuery,
 
@@ -102,8 +102,8 @@
 
     };
 
-    window.GridManager = GridManager;
+    window.GridManagerSVG = GridManagerSVG;
 
-    window.GridManager.init();
+    window.GridManagerSVG.init();
 
 })(jQuery, window);
