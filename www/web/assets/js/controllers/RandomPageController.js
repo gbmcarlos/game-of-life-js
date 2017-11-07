@@ -23,12 +23,6 @@
             intervalDuration: 10
         },
 
-        /*
-         * 0 = stop
-         * 1 = running
-         */
-        state: 0,
-
         init: function() {
             this.gameOfLife.init(this.config);
             this.setEvents();
@@ -48,11 +42,8 @@
 
             this.gameOfLife.start(
                 initialPattern,
-                this.iterationsCallback.bind(this),
-                this.finishCallback.bind(this)
+                this.iterationsCallback.bind(this)
             );
-
-            this.state = 1;
 
         },
 
@@ -60,19 +51,11 @@
             this.gameOfLife.stop();
         },
 
-        reset: function() {
-            this.gameOfLife.reset();
-        },
-
         resume: function() {
             this.gameOfLife.resume();
         },
 
         iterationsCallback: function() {
-
-        },
-
-        finishCallback: function() {
 
         },
 
