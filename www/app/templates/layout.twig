@@ -9,6 +9,10 @@
 </head>
 <body>
 <div class="container-fluid">{% block content %}{% endblock %}</div>
-{% block footerAssets %}{% endblock %}
+{% block footerAssets %}
+    <script type="application/javascript" src="{{ asset('assets/js/services/GridManagerCanvas.js') }}"></script>
+    <script type="application/javascript" src="{{ asset('assets/js/services/GameOfLife.js') }}"></script>
+    <script type="application/javascript" src="{{ asset('assets/js/controllers/BaseGameOfLifeController.js') }}"></script>
+{% endblock %}
 </body>
 </html>

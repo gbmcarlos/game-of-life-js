@@ -14,8 +14,7 @@
     </div>
 {% endblock %}
 {% block footerAssets %}
-    <script type="application/javascript" src="{{ asset('assets/js/services/GridManagerCanvas.js') }}"></script>
-    <script type="application/javascript" src="{{ asset('assets/js/services/GameOfLife.js') }}"></script>
+    {{ parent() }}
     <script type="application/javascript" src="{{ asset('assets/js/controllers/GosperGliderGunPageController.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/grid.css') }}" />
 {% endblock %}
