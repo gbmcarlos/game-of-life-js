@@ -15,41 +15,12 @@
 
         gameOfLife: gameOfLife,
 
-        config: {
-            numberCellsX: 50,
-            numberCellsY: 50,
-            cellWidth: 5,
-            cellHeight: 5,
-            intervalDuration: 10
-        },
-
-        init: function() {
-            this.gameOfLife.init(this.config);
-            this.setEvents();
-        },
-
-        setEvents: function() {
-
-            this.ui.stopBtn.on('click', this.stop.bind(this));
-            this.ui.resumeBtn.on('click', this.resume.bind(this));
-            this.ui.restartBtn.on('click', this.start.bind(this));
-
-        },
-
         start: function() {
 
             var initialPattern = this.getGosperGiderGunPattern(0, 0, this.config.numberCellsX, this.config.numberCellsY);
 
             this.gameOfLife.start(initialPattern);
 
-        },
-
-        stop: function() {
-            this.gameOfLife.stop();
-        },
-
-        resume: function() {
-            this.gameOfLife.resume();
         },
 
         iterationsCallback: function() {
@@ -77,7 +48,7 @@
 
     };
 
-    window.GosperGliderGunPageController = GosperGliderGunPageController;
+    window.GosperGliderGunPageController = jQuery.extend(GosperGliderGunPageController, window.BaseGameOfLifeController);
 
     window.GosperGliderGunPageController.init();
 

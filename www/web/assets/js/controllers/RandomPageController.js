@@ -5,36 +5,9 @@
 
     var RandomPageController = {
 
-        ui: {
-            stopBtn: jQuery('#stopBtn'),
-            resumeBtn: jQuery('#resumeBtn'),
-            restartBtn: jQuery('#restartBtn')
-        },
-
         $: jQuery,
 
         gameOfLife: gameOfLife,
-
-        config: {
-            numberCellsX: 50,
-            numberCellsY: 50,
-            cellWidth: 5,
-            cellHeight: 5,
-            intervalDuration: 10
-        },
-
-        init: function() {
-            this.gameOfLife.init(this.config);
-            this.setEvents();
-        },
-
-        setEvents: function() {
-
-            this.ui.stopBtn.on('click', this.stop.bind(this));
-            this.ui.resumeBtn.on('click', this.resume.bind(this));
-            this.ui.restartBtn.on('click', this.start.bind(this));
-
-        },
 
         start: function() {
 
@@ -45,14 +18,6 @@
                 this.iterationsCallback.bind(this)
             );
 
-        },
-
-        stop: function() {
-            this.gameOfLife.stop();
-        },
-
-        resume: function() {
-            this.gameOfLife.resume();
         },
 
         iterationsCallback: function() {
@@ -85,7 +50,7 @@
 
     };
 
-    window.RandomPageController = RandomPageController;
+    window.RandomPageController = jQuery.extend(RandomPageController, window.BaseGameOfLifeController);
 
     window.RandomPageController.init();
 
