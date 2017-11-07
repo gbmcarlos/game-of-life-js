@@ -34,8 +34,8 @@
 
                     var cell = grid[i][j];
 
-                    var x = i * cellWidth;
-                    var y = j * cellHeight;
+                    var x = j * cellWidth;
+                    var y = i * cellHeight;
                     var width = x + cellWidth;
                     var height = y + cellHeight;
 

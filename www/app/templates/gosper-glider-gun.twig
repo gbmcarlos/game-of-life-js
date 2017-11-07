@@ -1,7 +1,24 @@
 {% extends 'layout.twig' %}
 
-{% block title %}Random pattern{% endblock %}
+{% block title %}Gosper's Glider Gun{% endblock %}
 
 {% block content %}
     <h4>Game of life grid created with a Gosper's Glider Gun</h4>
+    <div class="row">
+        <div class="offset-md-3 col-md-3 col-sm-12" id="grid-container"></div>
+        <div class="col-md-3 col-sm-12">
+            <button type="button" class="btn btn-success" id="stopBtn">Stop</button>
+            <button type="button" class="btn btn-success" id="resumeBtn">Resume</button>
+            <button type="button" class="btn btn-success" id="restartBtn">Restart</button>
+            <b>Generation #:</b>
+            <p id="generationLabel"></p>
+            <b>Population count:</b>
+            <p id="countLabel"></p>
+        </div>
+    </div>
+{% endblock %}
+{% block footerAssets %}
+    {{ parent() }}
+    <script type="application/javascript" src="{{ asset('assets/js/controllers/GosperGliderGunPageController.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/grid.css') }}" />
 {% endblock %}
