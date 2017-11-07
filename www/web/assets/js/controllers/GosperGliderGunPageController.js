@@ -19,11 +19,7 @@
 
             var initialPattern = this.getGosperGiderGunPattern(0, 0, this.config.numberCellsX, this.config.numberCellsY);
 
-            this.gameOfLife.start(initialPattern);
-
-        },
-
-        iterationsCallback: function() {
+            this.gameOfLife.start(initialPattern, this.iterationsCallback.bind(this));
 
         },
 

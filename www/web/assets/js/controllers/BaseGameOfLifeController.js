@@ -11,7 +11,9 @@
         ui: {
             stopBtn: jQuery('#stopBtn'),
             resumeBtn: jQuery('#resumeBtn'),
-            restartBtn: jQuery('#restartBtn')
+            restartBtn: jQuery('#restartBtn'),
+            generationLabel: jQuery('#generationLabel'),
+            countLabel: jQuery('#countLabel')
         },
 
         $: jQuery,
@@ -53,6 +55,13 @@
 
         resume: function() {
             this.gameOfLife.resume();
+        },
+
+        iterationsCallback: function(generation, count) {
+
+            this.ui.generationLabel.html(generation);
+            this.ui.countLabel.html(count);
+
         }
 
     };

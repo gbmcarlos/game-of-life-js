@@ -20,10 +20,6 @@
 
         },
 
-        iterationsCallback: function() {
-
-        },
-
         getRandomPattern: function(ratio) {
 
             var pattern = [];
