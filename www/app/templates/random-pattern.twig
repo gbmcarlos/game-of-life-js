@@ -5,8 +5,13 @@
 {% block content %}
     <h4>Game of life grid created form a random pattern</h4>
     <div class="row">
-        <div id="grid-container" class="col-md-6 offset-md-3">
+        <div class="offset-md-3 col-md-3 col-sm-12" id="grid-container">
             <svg id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="grid"></svg>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <button type="button" class="btn btn-success" id="stopBtn">Stop</button>
+            <button type="button" class="btn btn-success" id="resumeBtn">Resume</button>
+            <button type="button" class="btn btn-success" id="restartBtn">Restart (new pattern)</button>
         </div>
     </div>
 {% endblock %}
