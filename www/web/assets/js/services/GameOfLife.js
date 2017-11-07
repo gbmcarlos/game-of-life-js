@@ -9,15 +9,11 @@
 
         gridManager: gridManager,
 
-        config: {
-            numberCellsX: 38,
-            numberCellsY: 38,
-            cellWidth: 10,
-            cellHeight: 10,
-            intervalDuration: 10
-        },
+        config: {},
 
-        init: function() {
+        init: function(config) {
+
+            this.config = config;
 
             this.gridManager.init(
                 this.config.numberCellsX * this.config.cellWidth,
@@ -165,37 +161,10 @@
 
             return result;
 
-        },
-
-        getRandomPattern: function(ratio) {
-
-            var pattern = [];
-
-            for (var i = 0; i < this.config.numberCellsX; i++) { // for each line
-
-                pattern[i] = [];
-
-                for (var j = 0; j < this.config.numberCellsY; j++) { // for each cell
-
-                    pattern[i][j] = this.getRandomCell(ratio);
-
-                }
-
-            }
-
-            return pattern;
-
-        },
-
-        getRandomCell: function(ratio) {
-            return Math.random() < ratio;
         }
 
     };
 
     window.GameOfLife = GameOfLife;
-
-    window.GameOfLife.init();
-
 
 })(jQuery, window, window.GridManagerCanvas);
