@@ -24,6 +24,10 @@
 
         },
 
+        drawPopulation: function(population) {
+            this.gridManager.drawGrid(population);
+        },
+
         start: function(initialPopulation, iterationCallback) {
 
             this.reset();
