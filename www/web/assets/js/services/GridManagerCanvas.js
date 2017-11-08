@@ -25,7 +25,7 @@
         },
 
         resetGrid: function() {
-            this.canvas = this.setupCanvas(this.config);
+            this.canvas.clearRect(0, 0, this.config.width, this.config.height);
         },
 
         drawGrid: function(grid) {
