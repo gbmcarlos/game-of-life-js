@@ -15,9 +15,13 @@
         },
 
         init: function(width, height) {
+            this.setDimensions(width, height);
+            this.setupCanvas(this.config);
+        },
+
+        setDimensions: function(width, height) {
             this.config.width = width;
             this.config.height = height;
-            this.canvas = this.setupCanvas(this.config);
         },
 
         resetGrid: function() {
