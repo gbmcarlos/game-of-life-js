@@ -1,0 +1,18 @@
+{% extends 'layout.twig' %}
+{% block headAssets %}
+    {{ parent() }}
+    {# qunit styles #}
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.4.1.css">
+{% endblock %}
+{% block content %}
+    {# qunit container #}
+    <div id="qunit"></div>
+{% endblock %}
+{% block footerAssets %}
+    {{ parent() }}
+    <script type="application/javascript" src="{{ asset('assets/js/controllers/RandomPageController.js') }}"></script>
+    <script type="application/javascript" src="{{ asset('assets/js/controllers/GosperGliderGunPageController.js') }}"></script>
+
+    {# qunit script and tests #}
+    <script src="https://code.jquery.com/qunit/qunit-2.4.1.js"></script>
+{% endblock %}
