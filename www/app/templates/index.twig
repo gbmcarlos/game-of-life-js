@@ -1,14 +1,15 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-    <div class="row">
-
-    </div>
-    <div class="row">
+    <div class="row align-items-center">
         <div class="offset-md-4 col-md-4 col-sm-12 col-xs-12">
-            <a class="btn btn-primary" href="{{ url('front.random-pattern') }}">Random pattern</a>
-            <a class="btn btn-primary" href="{{ url('front.gosper-glider-gun') }}">Gosper's Glider Gun</a>
-            <a class="btn btn-primary" href="{{ url('front.create-pattern') }}">Create pattern</a>
+            <div class="card">
+                <div class="card-body">
+                    <a class="btn btn-primary btn-block" href="{{ url('front.random-pattern') }}">Random pattern</a>
+                    <a class="btn btn-primary btn-block" href="{{ url('front.gosper-glider-gun') }}">Gosper's Glider Gun</a>
+                    <a class="btn btn-primary btn-block" href="{{ url('front.create-pattern') }}">Create pattern</a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

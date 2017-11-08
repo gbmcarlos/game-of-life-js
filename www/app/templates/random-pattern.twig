@@ -4,16 +4,13 @@
 
 {% block content %}
     <h4>Game of life grid created form a random pattern</h4>
-    <div class="row">
-        <div class="offset-md-3 col-md-3 col-sm-12" id="grid-container"></div>
-        <div class="col-md-3 col-sm-12">
-            <button type="button" class="btn btn-success" id="stopBtn">Stop</button>
-            <button type="button" class="btn btn-success" id="resumeBtn">Resume</button>
-            <button type="button" class="btn btn-success" id="restartBtn">Restart (new pattern)</button>
-            <b>Generation #:</b>
-            <p id="generationLabel"></p>
-            <b>Population count:</b>
-            <p id="countLabel"></p>
+    <div class="row align-items-center">
+        <div class="offset-md-4 col-md-2">
+            <div class="container">
+                <div class="row">
+                    {% include 'game-panel.twig' %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
