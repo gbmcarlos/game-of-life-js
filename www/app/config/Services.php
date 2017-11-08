@@ -28,7 +28,9 @@ class Services {
         // Front controller
         $app['FrontController'] = function() use ($app) {
             return new FrontController(
-                $app['twig']
+                $app['twig'],
+                $app['url_generator'],
+                $app
             );
         };
 
