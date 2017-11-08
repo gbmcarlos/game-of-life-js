@@ -19,7 +19,7 @@ class FrontController {
         $this->twig = $twig;
     }
 
-    public function helloWorld(Request $request) {
+    public function index(Request $request) {
         return $this->twig->render('index.twig');
     }
 
@@ -33,6 +33,10 @@ class FrontController {
 
     public function createPattern(Request $request) {
         return $this->twig->render('create-pattern.twig');
+    }
+
+    public function tests(Request $request) {
+        return $this->twig->render('tests.twig');
     }
 
 }

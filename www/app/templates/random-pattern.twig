@@ -19,6 +19,6 @@
 {% endblock %}
 {% block footerAssets %}
     {{ parent() }}
-    <script type="application/javascript" src="{{ asset('assets/js/controllers/RandomPageController.js') }}"></script>
+    <script type="application/javascript" src="{{ asset('assets/js/controllers/RandomPageController.js') }}" onload="window.RandomPageController.start()"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/grid.css') }}" />
 {% endblock %}

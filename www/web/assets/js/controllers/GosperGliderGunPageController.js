@@ -48,6 +48,4 @@
 
     window.GosperGliderGunPageController.init();
 
-    window.GosperGliderGunPageController.start();
-
 })(jQuery, window, window.GameOfLife);

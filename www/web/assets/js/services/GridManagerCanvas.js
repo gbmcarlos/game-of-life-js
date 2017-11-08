@@ -15,19 +15,23 @@
         },
 
         init: function(width, height) {
+            this.setDimensions(width, height);
+            this.setupCanvas(this.config);
+        },
+
+        setDimensions: function(width, height) {
             this.config.width = width;
             this.config.height = height;
-            this.canvas = this.setupCanvas(this.config);
         },
 
         resetGrid: function() {
-            this.canvas = this.setupCanvas(this.config);
+            this.canvas.clearRect(0, 0, this.config.width, this.config.height);
         },
 
         drawGrid: function(grid) {
 
-            var cellWidth = +(this.config.width / grid.length).toFixed(1);
-            var cellHeight = +(this.config.width / grid[0].length).toFixed(1);
+            var cellWidth = +(this.config.width / grid[0].length).toFixed(1);
+            var cellHeight = +(this.config.height / grid.length).toFixed(1);
 
             for (var i = 0; i < grid.length;i++) {
                 for (var j = 0; j < grid[i].length;j++) {
@@ -36,15 +40,14 @@
 
                     var x = j * cellWidth;
                     var y = i * cellHeight;
-                    var width = x + cellWidth;
-                    var height = y + cellHeight;
+                    var width = cellWidth;
+                    var height = cellHeight;
 
                     if (cell) {
                         this.canvas.fillRect(x, y, width, height);
                     } else {
                         this.canvas.clearRect(x, y, width, height);
                     }
-                    this.canvas.closePath();
 
                 }
             }
@@ -61,7 +64,7 @@
             this.$(config.containerSelector).empty();
             this.$(config.containerSelector).append(canvas);
 
-            return canvas.getContext('2d');
+            this.canvas = canvas.getContext('2d');
 
         }
 
