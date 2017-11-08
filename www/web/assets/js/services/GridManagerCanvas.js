@@ -30,8 +30,8 @@
 
         drawGrid: function(grid) {
 
-            var cellWidth = +(this.config.width / grid.length).toFixed(1);
-            var cellHeight = +(this.config.width / grid[0].length).toFixed(1);
+            var cellWidth = +(this.config.width / grid[0].length).toFixed(1);
+            var cellHeight = +(this.config.height / grid.length).toFixed(1);
 
             for (var i = 0; i < grid.length;i++) {
                 for (var j = 0; j < grid[i].length;j++) {
