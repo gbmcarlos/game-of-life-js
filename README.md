@@ -14,25 +14,17 @@ You will be judged on your coding style, on the efficiency of your implementatio
 
 ## Requirements
 * The game of life functionality will be implemented purely in Javascript
-* The overall functionality of the website (serving the pages, creating random patterns, etc...) will be implemented in PHP.
+* The overall functionality of the website will be implemented in PHP.
 * The application will be implemented using Silex as a PHP framework, vanilla Javascript and Docker.
 
 ### User journey
 
 #### Front page
-* In the frot page the user will see three buttons, "Random pattern", "Gosper Glider Gun" and "Create pattern". 
+* In the frot page the user will see three buttons, "Random pattern", and "Gosper Glider Gun". 
 * Each of the button will redirect the user to a different page. 
-* The user also sees a list of locally created patterns. Clicking on them will redirect the user to a page where the pattern is reproduced
 
 #### Random pattern page
 * This page will show a functional grid of 38x38 started with a random pattern.
 
 #### Gosper Glider Gun page
 * This page will show a functional grid of 38x38 started with a Gosper Glider Gun.
-
-#### Create pattern page
-* In this page the user will see a grid of 38x38, and three buttons, "Reset grid", "Random pattern" and "Save". 
-* As the user clicks on the cells of the grid, these turn black and white (activated and deactivated respectively). 
-* Clicking the "Reset grid" button resets the grid with all the cells white. 
-* Clicking the "Random pattern" buttons sets a random pattern to the grid. 
-* Clicking the "Save" button saves the current pattern locally.

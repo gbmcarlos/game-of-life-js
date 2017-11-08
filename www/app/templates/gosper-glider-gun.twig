@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Gosper's Glider Gun{% endblock %}
+
+{% block content %}
+    <h4>Game of life grid created with a Gosper's Glider Gun</h4>
+    <div class="row align-items-center">
+        <div class="offset-md-4 col-md-2">
+            <div class="container">
+                <div class="row">
+                    {% include 'game-panel.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footerAssets %}
+    {{ parent() }}
+    <script type="application/javascript" src="{{ asset('assets/js/controllers/GosperGliderGunPageController.js') }}" onload="window.GosperGliderGunPageController.start()"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/grid.css') }}" />
+{% endblock %}
