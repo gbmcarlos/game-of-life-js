@@ -44,7 +44,6 @@
                     } else {
                         this.canvas.clearRect(x, y, width, height);
                     }
-                    this.canvas.closePath();
 
                 }
             }
