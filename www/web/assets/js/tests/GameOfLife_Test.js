@@ -10,7 +10,7 @@ QUnit.assert.equalPopulation = function(value, expected, message) {
     var result = true;
 
     for (var i = 0; i < expected.length && result; i++) {
-        if (typeof expected[i] != typeof value [i]) {
+        if (typeof expected[i] != typeof value[i]) {
             result = false;
             continue;
         }
@@ -157,7 +157,7 @@ QUnit.test('Calculate next generation', function(assert) {
     var nextGeneration3 = [
         [0,0,0],
         [1,1,0],
-        [0,1,0]
+        [1,1,0]
     ];
 
     var population4 = [
@@ -172,9 +172,9 @@ QUnit.test('Calculate next generation', function(assert) {
         [1,1,0]
     ];
 
-    assert.equalPopulation(nextGeneration1, GameOfLife.calculateNextGeneration(population1));
-    assert.equalPopulation(nextGeneration2, GameOfLife.calculateNextGeneration(population2));
-    assert.equalPopulation(nextGeneration3, GameOfLife.calculateNextGeneration(population3));
-    assert.equalPopulation(nextGeneration4, GameOfLife.calculateNextGeneration(population4));
+    assert.equalPopulation(GameOfLife.calculateNextGeneration(population1).population, nextGeneration1);
+    assert.equalPopulation(GameOfLife.calculateNextGeneration(population2).population, nextGeneration2);
+    assert.equalPopulation(GameOfLife.calculateNextGeneration(population3).population, nextGeneration3);
+    assert.equalPopulation(GameOfLife.calculateNextGeneration(population4).population, nextGeneration4);
 
 });
