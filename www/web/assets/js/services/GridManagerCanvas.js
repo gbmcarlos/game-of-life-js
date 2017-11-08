@@ -61,7 +61,7 @@
             this.$(config.containerSelector).empty();
             this.$(config.containerSelector).append(canvas);
 
-            return canvas.getContext('2d');
+            this.canvas = canvas.getContext('2d');
 
         }
 
