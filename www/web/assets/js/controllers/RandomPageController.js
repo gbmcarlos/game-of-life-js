@@ -50,6 +50,4 @@
 
     window.RandomPageController.init();
 
-    window.RandomPageController.start();
-
 })(jQuery, window, window.GameOfLife);
