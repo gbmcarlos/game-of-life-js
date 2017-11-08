@@ -16,7 +16,7 @@ QUnit.assert.methodCalls = function(value, expected, message) {
 
     var result = true;
 
-    for (var i = 0; i < expected.length;i++) {
+    for (var i = 0; i < expected.length && result;i++) {
 
         if (expected[i][0] != value[i][0]) { // the name of the method
             result = false;
