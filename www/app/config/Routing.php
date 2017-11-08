@@ -27,9 +27,6 @@ class Routing {
         $app->get('/gosper-glider-gun', "FrontController:gosperGliderGun")
             ->bind('gosper-glider-gun');
 
-        $app->get('/create-pattern', "FrontController:createPattern")
-            ->bind('create-pattern');
-
         $app->get('/tests', "FrontController:tests")
             ->bind('tests');
 

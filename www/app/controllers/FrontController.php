@@ -46,10 +46,6 @@ class FrontController {
         return $this->twig->render('gosper-glider-gun.twig');
     }
 
-    public function createPattern(Request $request) {
-        return $this->twig->render('create-pattern.twig');
-    }
-
     public function tests(Request $request) {
         return $this->twig->render('tests.twig');
     }
