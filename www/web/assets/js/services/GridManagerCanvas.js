@@ -40,8 +40,8 @@
 
                     var x = j * cellWidth;
                     var y = i * cellHeight;
-                    var width = x + cellWidth;
-                    var height = y + cellHeight;
+                    var width = cellWidth;
+                    var height = cellHeight;
 
                     if (cell) {
                         this.canvas.fillRect(x, y, width, height);
