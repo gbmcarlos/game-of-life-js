@@ -15,7 +15,7 @@ class Routing {
     public static function registerRoutes(Application $app){
 
         // Register routes here
-        $app->get('/', "FrontController:helloWorld")
+        $app->get('/index.php', "FrontController:index")
             ->bind('front.index');
         $app->get('/random-pattern', "FrontController:randomPattern")
             ->bind('front.random-pattern');

@@ -19,7 +19,7 @@ class FrontController {
         $this->twig = $twig;
     }
 
-    public function helloWorld(Request $request) {
+    public function index(Request $request) {
         return $this->twig->render('index.twig');
     }
 
