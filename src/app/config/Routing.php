@@ -12,6 +12,10 @@ use Silex\Application;
 
 class Routing {
 
+    /**
+     * @param Application $app
+     * @throws \Silex\Exception\ControllerFrozenException
+     */
     public static function registerRoutes(Application $app){
 
         // Register routes here
